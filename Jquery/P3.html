@@ -5,10 +5,10 @@
 			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
-					$("#slide").onmouseenter(function(){
+					$("#slide").mouseenter(function(){
 						$("a").show();
 					});
-					$("#slide").onmouseleave(function(){
+					$("#slide").mouseleave(function(){
 						$("a").hide();
 					});
 				});
@@ -28,6 +28,12 @@
 					z-index: 10000;
 					display: none;
 					position: absolute;
+					top:130px;
+				}
+				#next-button{
+					top:100px;
+					position: absolute;
+
 				}
 			</style>
 	</head>
