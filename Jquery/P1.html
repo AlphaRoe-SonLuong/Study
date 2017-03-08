@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQuery Practice</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#q1").click(function(){
+				$("#a2").hide(100);
+				$("#a3").hide(100);
+				$("#a1").toggle(500);
+			});
+			$("#q2").click(function(){
+				$("#a1").hide(100);
+				$("#a3").hide(100);
+				$("#a2").toggle(500);
+			});
+			$("#q3").click(function(){
+				$("#a1").hide(100);
+				$("#a2").hide(100);
+				$("#a3").toggle(500);
+			})
+		});
+
+	</script>
+	<style type="text/css">
+		p{
+			padding: 30px;
+			background-color: #ff99cc;
+			display: none;
+			border: 1px #e0e4eb solid;
+		}
+		h2{
+			padding: 15px;
+			background-color: #66ccff;
+			border: 1px #ff3300 solid;
+		}
+	</style>
+</head>
+<body>
+	<h1>P1 - Create a accodion like to Boostrap!</h1>
+	<h2 id="q1">Question 1</h2>
+		<p id="a1">Answer 1</p>
+
+	<h2 id="q2">Question 2</h2>
+		<p id="a2">Answer 2</p>
+
+	<h2 id="q3">Question 3</h2>
+		<p id="a3">Answer 3</p>
+</body>
+</html>

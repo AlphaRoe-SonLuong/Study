@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Slide with Javascript and JQuery</title>
+			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+			<script type="text/javascript">
+				$(document).ready(function(){
+					$("#slide").onmouseenter(function(){
+						$("a").show();
+					});
+					$("#slide").onmouseleave(function(){
+						$("a").hide();
+					});
+				});
+			</script>
+			<style type="text/css">
+				body{
+					margin: auto;
+					background: grey;
+				}
+				#slide{
+					width: 850px;
+					height: 315px;
+					overflow: hidden;
+					margin: 0 auto;
+				}
+				a{
+					z-index: 10000;
+					display: none;
+					position: absolute;
+				}
+			</style>
+	</head>
+<body>
+<div id="body">
+	<div id="slide">
+		<span id="previous-button">
+			<a href="#"><img src="img/prbtn.png"/></a>
+		</span>
+			<img src="img/1.jpg" alt="hinh 1" width="850" height="315" />
+			<p>This is slide 1</p>
+			<img src="img/2.jpg" alt="hinh 2" width="850" height="315" />
+			<p>This is slide 2</p>
+			<img src="img/3.jpg" alt="hinh 3" width="850" height="315" />
+			<p>This is slide 3</p>
+		<span id="next-button">
+			<a href="#"><img src="img/nxbtn.png"/></a>
+		</span>
+	</div>
+</div>
+</body>
+</html>
