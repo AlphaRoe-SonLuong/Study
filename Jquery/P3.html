@@ -5,13 +5,47 @@
 			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
+					var number=getnumberofimgslide();
+					
 					$("#slide").mouseenter(function(){
-						$("a").show();
+						$(".btn").show();
 					});
 					$("#slide").mouseleave(function(){
-						$("a").hide();
+						$(".btn").hide();
 					});
+					$("#previous-button").click(function(){
+						var pic=document.getElementsByClassName("slide1");
+					});
+					$("#next-button").click(function(){
+						clickNext();
+					});
+					$("#previous-button").click(function(){
+						clickPrevious();
+					});
+					
+					if(number!=0)
+					{
+						for(var i=0;i<number;i++){
+							document.getElementById("navi").innerHTML="<span><a href='#'>"+i+"</a></span>";
+						}
+					}
 				});
+				//get number
+				function getnumberofimgslide()
+				{
+					var pic=document.getElementsByClassName("slide1").length;
+					return pic;
+				}
+
+				function clickNext()
+				{
+
+				}
+				function clickPrevious()
+				{
+
+				}
+
 			</script>
 			<style type="text/css">
 				body{
@@ -23,35 +57,72 @@
 					height: 315px;
 					overflow: hidden;
 					margin: 0 auto;
+					display: block;
+					position: relative;
 				}
-				a{
-					z-index: 10000;
-					display: none;
+				#navi{
+					height: 15px;
+					width: 50px;
+					z-index: 1000;
+					background: #eeeeee;
 					position: absolute;
-					top:130px;
+					opacity: 0.2;
+				}
+				#previous-button{
+					z-index: 10000;
+					position: absolute;
+					display: none;
+					padding-top: 130px;
 				}
 				#next-button{
-					top:100px;
+					z-index: 10000;
 					position: absolute;
-
+					display: none;
+					padding-top: 50px;
+					padding-right: 100px;
+				}
+				.show{
+					display: block;
+				}
+				.hide{
+					display: none;
+				}
+				.des{
+					width: 850px;
+					height: 50px;
+					margin-top:-53px;
+					background: #e0e0e0;
+					opacity: 0.5;
+					z-index: 1000;
+					position: absolute;
+				}
+				p{
+					padding: 5px;
 				}
 			</style>
 	</head>
 <body>
 <div id="body">
 	<div id="slide">
-		<span id="previous-button">
+		<div id="previous-button" class="btn">
 			<a href="#"><img src="img/prbtn.png"/></a>
-		</span>
-			<img src="img/1.jpg" alt="hinh 1" width="850" height="315" />
-			<p>This is slide 1</p>
-			<img src="img/2.jpg" alt="hinh 2" width="850" height="315" />
-			<p>This is slide 2</p>
-			<img src="img/3.jpg" alt="hinh 3" width="850" height="315" />
-			<p>This is slide 3</p>
-		<span id="next-button">
+		</div>
+		<div id="next-button" class="btn">
 			<a href="#"><img src="img/nxbtn.png"/></a>
-		</span>
+		</div>
+		<div id="navi"> </div>
+		<div class="slide">
+			<img src="img/1.jpg" class="slide1" alt="hinh 1" width="850" height="315" />
+			<div class="des"><p>This is slide 1</p></div>
+		</div>
+		<div class="slide hide">
+			<img src="img/2.jpg" class="slide1" alt="hinh 2" width="850" height="315"  />
+			<div class="des"><p>This is slide 2</p></div>
+		</div>
+		<div class="slide hide">	
+			<img src="img/3.jpg" class="slide1" alt="hinh 3" width="850" height="315" />
+			<div class="des"><p>This is slide 3</p></div>
+		</div>
 	</div>
 </div>
 </body>
