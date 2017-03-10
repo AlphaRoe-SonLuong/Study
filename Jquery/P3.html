@@ -5,8 +5,6 @@
 			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 			<script type="text/javascript">
 				$(document).ready(function(){
-					var number=getnumberofimgslide();
-					
 					$("#slide").mouseenter(function(){
 						$(".btn").show();
 					});
@@ -14,38 +12,36 @@
 						$(".btn").hide();
 					});
 					$("#previous-button").click(function(){
-						var pic=document.getElementsByClassName("slide1");
+						clickPrevious();
 					});
 					$("#next-button").click(function(){
 						clickNext();
 					});
-					$("#previous-button").click(function(){
-						clickPrevious();
-					});
 					
-					if(number!=0)
-					{
-						for(var i=0;i<number;i++){
-							document.getElementById("navi").innerHTML="<span><a href='#'>"+i+"</a></span>";
-						}
-					}
+					setInterval(function(){ slideShow(); }, 3000);
 				});
-				//get number
-				function getnumberofimgslide()
-				{
-					var pic=document.getElementsByClassName("slide1").length;
-					return pic;
-				}
 
+				function getCurrentPosition()
+				{
+					var arrImg=document.getElementsByClassName("current");
+					var index=arrImg[0];
+				}
+				function slideShow()
+				{
+					
+				}
 				function clickNext()
 				{
-
+					
 				}
 				function clickPrevious()
 				{
-
+					
 				}
-
+				function clicknavi(i)
+				{
+					
+				}
 			</script>
 			<style type="text/css">
 				body{
@@ -55,7 +51,6 @@
 				#slide{
 					width: 850px;
 					height: 315px;
-					overflow: hidden;
 					margin: 0 auto;
 					display: block;
 					position: relative;
@@ -63,14 +58,14 @@
 				#navi{
 					height: 15px;
 					width: 50px;
-					z-index: 10000;
-					bottom: 100px;
+					bottom: 60px;
+					background: red;
 					left: 100px;
-					background: #eeeeee;
 					position: absolute;
 					opacity: 0.2;
 
 				}
+				a{text-decoration: none;}
 				#previous-button{
 					z-index: 10000;
 					position: absolute;
@@ -85,49 +80,56 @@
 					right: 0px;
 					top: 130px;
 				}
-				.show{
-					display: block;
-				}
-				.hide{
-					display: none;
-				}
+				
 				.des{
-					width: 850px;
-					height: 50px;
+					width: 840px;
+					height: 40px;
 					bottom: 0px;
 					background: #e0e0e0;
 					opacity: 0.5;
-					z-index: 10000;
 					position: absolute;
+					padding:5px;
 				}
-				p{
-					padding: 5px;
+				
+				.active{
+
+				}
+				.current{
+					z-index: 10;
+				}
+				img{
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: 0;
 				}
 			</style>
 	</head>
 <body>
 <div id="body">
 	<div id="slide">
+		<div class="current">
+			<img src="img/1.jpg" class="hinh" alt="hinh 1" width="850" height="315" />
+			<div class="des"><p>This is slide 1</p></div>
+		</div>
+		<div>
+			<img src="img/2.jpg" class="hinh" alt="hinh 2" width="850" height="315"  />
+			<div class="des"><p>This is slide 2</p></div>
+		</div>
+		<div>
+			<img src="img/3.jpg" class="hinh" alt="hinh 3" width="850" height="315" />
+			<div class="des"><p>This is slide 3</p></div>
+		</div>
 		<div id="previous-button" class="btn">
 			<a href="#"><img src="img/prbtn.png"/></a>
 		</div>
 		<div id="next-button" class="btn">
 			<a href="#"><img src="img/nxbtn.png"/></a>
 		</div>
-		<div id="navi"> </div>
-		<div class="slide">
-			<img src="img/1.jpg" class="slide1" alt="hinh 1" width="850" height="315" />
-			<div class="des"><p>This is slide 1</p></div>
-		</div>
-		<div class="slide hide">
-			<img src="img/2.jpg" class="slide1" alt="hinh 2" width="850" height="315"  />
-			<div class="des"><p>This is slide 2</p></div>
-		</div>
-		<div class="slide hide">	
-			<img src="img/3.jpg" class="slide1" alt="hinh 3" width="850" height="315" />
-			<div class="des"><p>This is slide 3</p></div>
-		</div>
+		<!--Navigation-->
+		<div id="navi"></div>
 	</div>
+
 </div>
 </body>
 </html>
