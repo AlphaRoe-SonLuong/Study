@@ -21,8 +21,8 @@
 
 		$(document).ready(function(){
 			$("button").click(function(){
-				var keyword=("#txtAddress").val();
-				var map =new google.maps.Map(document.getElementById("googlemap"),location);
+				var keyword=("input").val;
+				alert(keyword);
 			});
 		});
 
@@ -50,7 +50,7 @@
 </head>
 <body>
 <div id="map">
-	<div id="search"><input type="text" name="txtAddress"><button>Tìm Địa chỉ</button></div>
+	<div id="search"><input type="text" name="txtAddress" value=""><button>Tìm Địa chỉ</button></div>
 	<div id="googlemap"/>
 </div>
 </body>
